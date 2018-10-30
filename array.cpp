@@ -13,7 +13,7 @@ template <typename Key>
 Array<Key>::Array() {
     capacity = 1;
     array_size = 0;
-    data = new int[1];
+    data = new Key[1];
 }
 
 template <typename Key>
@@ -54,7 +54,7 @@ template <typename Key>
 void Array<Key>::reallocate() {
     if (array_size == capacity) {
         capacity *= 2;
-        Key *new_data = new int[capacity];
+        Key *new_data = new Key[capacity];
         assert(capacity > array_size);
         for (int i = 0; i < array_size; i++) {
             new_data[i] = data[i];
@@ -63,7 +63,7 @@ void Array<Key>::reallocate() {
         data = new_data;
     } else if (array_size < capacity / 4) {
         capacity /= 2;
-        Key *new_data = new int[capacity];
+        Key *new_data = new Key[capacity];
         assert(capacity > array_size);
         for (int i = 0; i < array_size; i++) {
             new_data[i] = data[i];
