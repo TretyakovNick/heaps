@@ -19,9 +19,10 @@ public:
     ~THeap();
     THeap();
     bool is_empty() const;
+    int size() const;
     Key get_min();
     Key extract_min();
     void insert(Key key);
 };
 
-#include "heap.cpp"
+#include "heap1.cpp"

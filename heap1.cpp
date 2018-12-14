@@ -1,6 +1,6 @@
 #include <exception>
 #include <stdexcept>
-//#include "heap.h"
+//#include "heap1.h"
 
 template <typename Key>
 void THeap<Key>::sift_down(int v) {
@@ -42,6 +42,11 @@ THeap<Key>::~THeap() {
 template <typename Key>
 bool THeap<Key>::is_empty() const {
     return !heap_size;
+}
+
+template <typename Key>
+int THeap<Key>::size() const {
+    return heap_size;
 }
 
 template <typename Key>
