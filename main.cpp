@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include "array.h"
 #include "heap1.h"
+#include "heap2.h"
 
 #define ll long long
 
@@ -76,7 +77,7 @@ void check_heap() {
 
 int main() {
     srand(time(0));
-    check_array();
+    //check_array();
     int iter = 0;
     while (true) {
         check_heap();

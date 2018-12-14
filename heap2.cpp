@@ -3,108 +3,106 @@
 //#include "heap.h"
 
 template <typename Key>
-int THeap<Key>::sift_down(int v) {
-    while (2 * v + 1 < a.size()) {
-        int p = -1;
-        for (int i = 0; i < 2 && v * 2 + i + 1 < a.size(); i++) {
-            if (p == -1 || a[v * 2 + p + 1] > a[v * 2 + i + 1]) {
-                p = i;
-            }
+Key THeap<Key>::get(int index) {
+     return (arr[index])->key;
+}
+
+template<typename Key>
+bool THeap<Key>::is_empty() const{
+    return (!arr.size());
+}
+
+template<typename Key>
+int THeap<Key>::size() const{
+    return arr.size();
+}
+template <typename Key>
+void THeap<Key>::swap(int a, int b) {
+    if (a == b) return;
+    (*arr[a]).index = b;
+    (*arr[b]).index = a;
+    std::swap(arr[a], arr[b]);
+}
+
+template <typename Key>
+void THeap<Key>::sift_up(int index) {
+    while (index != 0 && get(index) < get((index - 1) / 2)) {
+        swap(index, (index - 1) / 2);
+        index = (index - 1) / 2;
+    }
+}
+
+template <typename Key>
+void THeap<Key>::sift_down(int index) {
+    while (true) {
+        int nxt = index;
+        if (2 * index + 1 < size() && get(index) > get(2 * index + 1)) {
+            nxt = 2 * index + 1;
         }
-        if (a[v] < a[v * 2 + p + 1]) {
+        if (2 * index + 2 < size() && get(index) > get(2 * index + 2)) {
+            nxt = 2 * index + 2;
+        }
+        if (nxt == index) {
             break;
         }
-        std::swap(a[v], a[v * 2 + p + 1]);
-        v = v * 2 + p + 1;
+        swap(index, nxt);
+        index = nxt;
     }
-    return v;
-}
-
-template <typename Key>
-int THeap<Key>::sift_up(int v) {
-    while (v > 0 && a[v] < a[(v - 1) / 2]) {
-        std::swap(a[v], a[(v - 1) / 2]);
-        v = (v - 1) / 2;
-    }
-    return v;
-}
-
-template <typename Key>
-THeap<Key>::THeap() {
-    a = Array<Key>();
-}
-
-template <typename Key>
-THeap<Key>::~THeap() {
-    a.~Array();
-}
-
-template <typename Key>
-bool THeap<Key>::is_empty() const {
-    return a.empty();
 }
 
 template <typename Key>
 Key THeap<Key>::get_min() {
-    if (is_empty()) {
-        throw std::out_of_range("Heap is empty");
+    if (!size()) {
+        throw std::out_of_range("request out of range");
     }
-    return a[0];
+    return get(0);
 }
 
 template <typename Key>
 Key THeap<Key>::extract_min() {
-    if (is_empty()) {
-        throw std::out_of_range("Heap is empty");
+    if (!size()) {
+        throw std::out_of_range("request out of range");
     }
-    Key mind = a[0];
-    std::swap(a[0], a[a.size() - 1]);
-    a.pop_back();
-    if (!is_empty()) {
-        sift_down(0);
-    }
-    return mind;
+    Key key = get(0);
+    swap(0, size() - 1);
+    arr.pop_back();
+    sift_down(0);
+    return key;
 }
 
 template <typename Key>
-THeap<Key>::Pointer::Pointer(int index, THeap *heap) {
-    this->index = new int(index);
-    this->heap = heap;
+typename THeap<Key>::Pointer THeap<Key>::insert(Key key) {
+    Element *elem = new Element(key, size());
+    arr.push_back(elem);
+    sift_up(size() - 1);
+    Pointer ptr(elem, this);
+    return ptr;
 }
 
 template <typename Key>
-THeap<Key>::Pointer::Pointer() {
-    this->index = new int(-1);
-    this->heap = nullptr;
-}
-
-template <typename Key>
-typename THeap<Key>::Pointer THeap<Key>::insert(Key x) {
-    a.push_back(x);
-    return Pointer(sift_up(a.size() - 1), this);
-}
-
-template <typename Key>
-void THeap<Key>::erase(typename THeap <Key>::Pointer &ptr) {
-    if (ptr->heap != this) {
+void THeap<Key>::erase(Pointer &ptr) {
+    if (ptr.heap != this) {
         throw std::out_of_range("Wrong Heap");
     }
-    if (is_empty()) {
-        throw std::out_of_range("Heap is empty");
+    if (!size()) {
+        throw std::out_of_range("Size is empty!");
     }
-    int v = *(ptr.index);
-    std::swap(a[a.size() - 1], a[v]);
-    delete ptr;
-    v = sift_up(v);
-    sift_down(v);
+    int ind = ptr.element->index;
+    swap(ind, size() - 1);
+    arr.pop_back();
+    if (ind == size()) return;
+    sift_down(ind);
+    sift_up(ind);
 }
 
 template <typename Key>
-void THeap<Key>::change(typename THeap <Key>::Pointer &ptr, Key key) {
-    if (ptr->heap != this) {
+void THeap<Key>::change(Pointer &ptr, Key key) {
+    if (ptr.heap != this) {
         throw std::out_of_range("Wrong Heap");
     }
-    int v = *(ptr.index);
-    v = sift_up(v);
-    sift_down(v);
+    Element *elem = ptr.element;
+    elem->key = key;
+    int ind = elem->ind;
+    sift_down(ind);
+    sift_up(ind);
 }
