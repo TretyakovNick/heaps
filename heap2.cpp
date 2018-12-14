@@ -19,14 +19,15 @@ int THeap<Key>::size() const{
 template <typename Key>
 void THeap<Key>::swap(int a, int b) {
     if (a == b) return;
-    (*arr[a]).index = b;
-    (*arr[b]).index = a;
+    arr[a]->index = b;
+    arr[b]->index = a;
     std::swap(arr[a], arr[b]);
 }
 
 template <typename Key>
 void THeap<Key>::sift_up(int index) {
-    while (index != 0 && get(index) < get((index - 1) / 2)) {
+    assert(index >= 0 && index < size());
+    while (index > 0 && get(index) < get((index - 1) / 2)) {
         swap(index, (index - 1) / 2);
         index = (index - 1) / 2;
     }
@@ -34,12 +35,12 @@ void THeap<Key>::sift_up(int index) {
 
 template <typename Key>
 void THeap<Key>::sift_down(int index) {
-    while (true) {
+    while (index < size()) {
         int nxt = index;
-        if (2 * index + 1 < size() && get(index) > get(2 * index + 1)) {
+        if (2 * index + 1 < size() && get(nxt) > get(2 * index + 1)) {
             nxt = 2 * index + 1;
         }
-        if (2 * index + 2 < size() && get(index) > get(2 * index + 2)) {
+        if (2 * index + 2 < size() && get(nxt) > get(2 * index + 2)) {
             nxt = 2 * index + 2;
         }
         if (nxt == index) {
@@ -53,7 +54,7 @@ void THeap<Key>::sift_down(int index) {
 template <typename Key>
 Key THeap<Key>::get_min() {
     if (!size()) {
-        throw std::out_of_range("request out of range");
+        throw std::out_of_range("Heap is empty");
     }
     return get(0);
 }
@@ -61,10 +62,11 @@ Key THeap<Key>::get_min() {
 template <typename Key>
 Key THeap<Key>::extract_min() {
     if (!size()) {
-        throw std::out_of_range("request out of range");
+        throw std::out_of_range("Heap is empty");
     }
     Key key = get(0);
     swap(0, size() - 1);
+    arr[size() - 1]->index = -1;
     arr.pop_back();
     sift_down(0);
     return key;
@@ -85,10 +87,12 @@ void THeap<Key>::erase(Pointer &ptr) {
         throw std::out_of_range("Wrong Heap");
     }
     if (!size()) {
-        throw std::out_of_range("Size is empty!");
+        throw std::out_of_range("Heap is empty");
     }
     int ind = ptr.element->index;
+    assert(ind != -1);
     swap(ind, size() - 1);
+    arr[size() - 1]->index = -1;
     arr.pop_back();
     if (ind == size()) return;
     sift_down(ind);
@@ -102,7 +106,23 @@ void THeap<Key>::change(Pointer &ptr, Key key) {
     }
     Element *elem = ptr.element;
     elem->key = key;
-    int ind = elem->ind;
+    int ind = elem->index;
+    assert(ind != -1);
     sift_down(ind);
     sift_up(ind);
 }
+
+template <typename Key>
+bool THeap<Key>::exist(Pointer &ptr) const{
+    if (ptr.heap != this) {
+        throw std::out_of_range("Wrong Heap");
+    }
+    return ptr.element->index != -1;
+}
+
+template <typename Key>
+THeap<Key>::THeap() {}
+
+template <typename Key>
+THeap<Key>::~THeap() {}
+

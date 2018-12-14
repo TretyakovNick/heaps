@@ -33,7 +33,7 @@ public:
     Pointer insert(Key key);
     void erase(Pointer &ptr);
     void change(Pointer &ptr, Key key);
-
+    bool exist(Pointer &ptr) const;
 };
 
 #include "heap2.cpp"

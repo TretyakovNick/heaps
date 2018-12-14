@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 #include "array.h"
-#include "heap1.h"
+//#include "heap1.h"
 #include "heap2.h"
 
 #define ll long long
+
 
 using namespace std;
 
@@ -60,27 +61,118 @@ void check_heap() {
     all.clear();
     THeap <int> w;
     const int MAXN = 1e3 + 7;
+    vector <THeap <int> :: Pointer> ptrs;
+    int cnt = 0;
     for (int i = 0; i < MAXN; i++) {
-        int tp = rand() % 10;
-        if (tp) {
+        int tp = rand() % 15;
+        //cout << tp << "\n";
+        if (tp > 2) {
             int x = rand();
-            w.insert(x);
+            ptrs.push_back(w.insert(x));
             add(x);
-        } else {
-            if (!w.size()) continue;
+            cnt++;
+        } else if (tp == 2) {
+            if (!cnt) continue;
+            //cout << get_min() << " " << w.get_min() << "\n";
             assert(get_min() == w.get_min());
             extract();
             w.extract_min();
+            cnt--;
+        } else if (tp == 1) {
+            if (!cnt) continue;
+            int p = rand() % all.size();
+            if (all[p] == INF) continue;
+            if (!w.exist(ptrs[p])) {
+                continue;
+            }
+            all[p] = INF;
+            cnt--;
+            w.erase(ptrs[p]);
+        } else {
+            if (!cnt) continue;
+            int p = rand() % all.size(), v = rand();
+            if (all[p] == INF) continue;
+            if (!w.exist(ptrs[p])) {
+                continue;
+            }
+            all[p] = v;
+            w.change(ptrs[p], v);
         }
+        //cout << "heh\n";
     }
 }
 
 int main() {
-    srand(time(0));
-    //check_array();
+    //srand(time(0));
     int iter = 0;
     while (true) {
         check_heap();
         cout << "OK " << iter++ << "\n";
     }
 }
+
+/*
+int n;
+    cin >> n;
+    vector <THeap<int>::Pointer> pointers;
+    THeap <int> q;
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        if (s == "insert") {
+            int x;
+            cin >> x;
+            pointers.push_back(q.insert(x));
+            cout << "ok\n";
+        } else if (s == "extract_min") {
+            if (!q.size()) {
+                cout << "error\n";
+            } else {
+                cout << q.extract_min() << "\n";
+            }
+        } else if (s == "delete") {
+            int p;
+            cin >> p;
+            p--;
+            if (p >= pointers.size()) {
+                cout << "error\n";
+                continue;
+            }
+            auto ptr = pointers[p];
+            if (ptr.element->index == -1) {
+                cout << "error\n";
+                continue;
+            }
+            q.erase(ptr);
+            cout << "ok\n";
+        } else if (s == "change") {
+            int p, x;
+            cin >> p >> x;
+            p--;
+            if (p >= pointers.size()) {
+                cout << "error\n";
+                continue;
+            }
+            auto ptr = pointers[p];
+            if (ptr.element->index == -1) {
+                cout << "error\n";
+                continue;
+            }
+            q.change(ptr, x);
+            cout << "ok\n";
+        } else if (s == "get_min") {
+            if (!q.size()) {
+                cout << "error\n";
+            } else {
+                cout << q.get_min() << "\n";
+            }
+        } else if (s == "size") {
+            cout << q.size() << "\n";
+        } else if (s == "clear") {
+            while (q.size()) {
+                q.extract_min();
+            }
+            cout << "ok\n";
+        }
+    }
+*/
