@@ -30,7 +30,7 @@ public:
     ~BinomialHeap();
     BinomialHeap();
     bool is_empty() const;
-    Key get_min();
+    Key get_min() const;
     Key extract_min();
     Pointer insert(Key key);
     void decrease(Pointer &ptr, Key key);

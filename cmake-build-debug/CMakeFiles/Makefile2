@@ -58,45 +58,45 @@ RM = "D:\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\1123078\Codes\MIPT\Heaps
+CMAKE_SOURCE_DIR = C:\Users\1123078\CLionProjects\ver4.0
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Heaps.dir
+# Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/Heaps.dir/all:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/depend
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target Heaps"
-.PHONY : CMakeFiles/Heaps.dir/all
+CMakeFiles/main.dir/all:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/depend
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
 
 # Include target in all.
-all: CMakeFiles/Heaps.dir/all
+all: CMakeFiles/main.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Heaps.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug\CMakeFiles 7
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Heaps.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/Heaps.dir/rule
+CMakeFiles/main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.
-Heaps: CMakeFiles/Heaps.dir/rule
+main: CMakeFiles/main.dir/rule
 
-.PHONY : Heaps
-
-# clean rule for target.
-CMakeFiles/Heaps.dir/clean:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/clean
-.PHONY : CMakeFiles/Heaps.dir/clean
+.PHONY : main
 
 # clean rule for target.
-clean: CMakeFiles/Heaps.dir/clean
+CMakeFiles/main.dir/clean:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/main.dir/clean
 
 .PHONY : clean
 

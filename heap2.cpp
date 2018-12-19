@@ -51,8 +51,6 @@ void THeap<Key>::sift_down(int index) {
     }
 }
 
-///www
-
 template <typename Key>
 Key THeap<Key>::get_min() const{
     if (!size()) {

@@ -56,46 +56,50 @@ void extract() {
     }
 }
 
-void check_heap() {
+void check_heaps() {
     all.clear();
-    THeap <int> w;
+    BinomialHeap <int> w;
+    THeap <int> q;
     const int MAXN = 1e3 + 7;
-    vector <THeap <int> :: Pointer> ptrs;
+    vector <BinomialHeap <int> :: Pointer> ptrs;
+    vector <THeap <int> :: Pointer> heap_ptrs;
     int cnt = 0;
     for (int i = 0; i < MAXN; i++) {
-        int tp = rand() % 15;
-        //cout << tp << "\n";
+        int tp = rand() % 15 + 2;
         if (tp > 2) {
             int x = rand();
             ptrs.push_back(w.insert(x));
+            heap_ptrs.push_back(q.insert(x));
             add(x);
             cnt++;
         } else if (tp == 2) {
             if (!cnt) continue;
             //cout << get_min() << " " << w.get_min() << "\n";
             assert(get_min() == w.get_min());
+            assert(get_min() == q.get_min());
             extract();
             w.extract_min();
+            q.extract_min();
             cnt--;
         } else if (tp == 1) {
             if (!cnt) continue;
             int p = rand() % all.size();
             if (all[p] == INF) continue;
-            if (!w.exist(ptrs[p])) {
+            if (!q.exist(heap_ptrs[p])) {
                 continue;
             }
             all[p] = INF;
             cnt--;
-            w.erase(ptrs[p]);
+            q.erase(heap_ptrs[p]);
         } else {
             if (!cnt) continue;
             int p = rand() % all.size(), v = rand();
             if (all[p] == INF) continue;
-            if (!w.exist(ptrs[p])) {
+            if (!q.exist(heap_ptrs[p])) {
                 continue;
             }
             all[p] = v;
-            w.change(ptrs[p], v);
+            q.change(heap_ptrs[p], v);
         }
         //cout << "heh\n";
     }
@@ -103,10 +107,9 @@ void check_heap() {
 
 int main() {
     //srand(time(0));
-    std::cout << "kek\n";
     int iter = 0;
     while (true) {
-        check_heap();
+        check_heaps();
         cout << "OK " << iter++ << "\n";
     }
 }

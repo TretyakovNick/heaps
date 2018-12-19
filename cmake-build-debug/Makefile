@@ -47,10 +47,10 @@ RM = "D:\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\1123078\Codes\MIPT\Heaps
+CMAKE_SOURCE_DIR = C:\Users\1123078\CLionProjects\ver4.0
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug\CMakeFiles C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug\CMakeFiles C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\Codes\MIPT\Heaps\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1123078\CLionProjects\ver4.0\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -110,152 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Heaps
+# Target rules for targets named main
 
 # Build rule for target.
-Heaps: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 Heaps
-.PHONY : Heaps
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-Heaps/fast:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/build
-.PHONY : Heaps/fast
-
-array.obj: array.cpp.obj
-
-.PHONY : array.obj
-
-# target to build an object file
-array.cpp.obj:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/array.cpp.obj
-.PHONY : array.cpp.obj
-
-array.i: array.cpp.i
-
-.PHONY : array.i
-
-# target to preprocess a source file
-array.cpp.i:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/array.cpp.i
-.PHONY : array.cpp.i
-
-array.s: array.cpp.s
-
-.PHONY : array.s
-
-# target to generate assembly for a file
-array.cpp.s:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/array.cpp.s
-.PHONY : array.cpp.s
-
-binomial_heap.obj: binomial_heap.cpp.obj
-
-.PHONY : binomial_heap.obj
-
-# target to build an object file
-binomial_heap.cpp.obj:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/binomial_heap.cpp.obj
-.PHONY : binomial_heap.cpp.obj
-
-binomial_heap.i: binomial_heap.cpp.i
-
-.PHONY : binomial_heap.i
-
-# target to preprocess a source file
-binomial_heap.cpp.i:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/binomial_heap.cpp.i
-.PHONY : binomial_heap.cpp.i
-
-binomial_heap.s: binomial_heap.cpp.s
-
-.PHONY : binomial_heap.s
-
-# target to generate assembly for a file
-binomial_heap.cpp.s:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/binomial_heap.cpp.s
-.PHONY : binomial_heap.cpp.s
-
-heap2.obj: heap2.cpp.obj
-
-.PHONY : heap2.obj
-
-# target to build an object file
-heap2.cpp.obj:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heap2.cpp.obj
-.PHONY : heap2.cpp.obj
-
-heap2.i: heap2.cpp.i
-
-.PHONY : heap2.i
-
-# target to preprocess a source file
-heap2.cpp.i:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heap2.cpp.i
-.PHONY : heap2.cpp.i
-
-heap2.s: heap2.cpp.s
-
-.PHONY : heap2.s
-
-# target to generate assembly for a file
-heap2.cpp.s:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heap2.cpp.s
-.PHONY : heap2.cpp.s
-
-heaps/array.obj: heaps/array.cpp.obj
-
-.PHONY : heaps/array.obj
-
-# target to build an object file
-heaps/array.cpp.obj:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heaps/array.cpp.obj
-.PHONY : heaps/array.cpp.obj
-
-heaps/array.i: heaps/array.cpp.i
-
-.PHONY : heaps/array.i
-
-# target to preprocess a source file
-heaps/array.cpp.i:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heaps/array.cpp.i
-.PHONY : heaps/array.cpp.i
-
-heaps/array.s: heaps/array.cpp.s
-
-.PHONY : heaps/array.s
-
-# target to generate assembly for a file
-heaps/array.cpp.s:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heaps/array.cpp.s
-.PHONY : heaps/array.cpp.s
-
-heaps/heap.obj: heaps/heap.cpp.obj
-
-.PHONY : heaps/heap.obj
-
-# target to build an object file
-heaps/heap.cpp.obj:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heaps/heap.cpp.obj
-.PHONY : heaps/heap.cpp.obj
-
-heaps/heap.i: heaps/heap.cpp.i
-
-.PHONY : heaps/heap.i
-
-# target to preprocess a source file
-heaps/heap.cpp.i:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heaps/heap.cpp.i
-.PHONY : heaps/heap.cpp.i
-
-heaps/heap.s: heaps/heap.cpp.s
-
-.PHONY : heaps/heap.s
-
-# target to generate assembly for a file
-heaps/heap.cpp.s:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/heaps/heap.cpp.s
-.PHONY : heaps/heap.cpp.s
+main/fast:
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 main.obj: main.cpp.obj
 
@@ -263,7 +128,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -272,7 +137,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -281,7 +146,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\Heaps.dir\build.make CMakeFiles/Heaps.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -290,24 +155,9 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... Heaps
 	@echo ... edit_cache
+	@echo ... main
 	@echo ... rebuild_cache
-	@echo ... array.obj
-	@echo ... array.i
-	@echo ... array.s
-	@echo ... binomial_heap.obj
-	@echo ... binomial_heap.i
-	@echo ... binomial_heap.s
-	@echo ... heap2.obj
-	@echo ... heap2.i
-	@echo ... heap2.s
-	@echo ... heaps/array.obj
-	@echo ... heaps/array.i
-	@echo ... heaps/array.s
-	@echo ... heaps/heap.obj
-	@echo ... heaps/heap.i
-	@echo ... heaps/heap.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
