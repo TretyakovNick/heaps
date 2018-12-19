@@ -1,0 +1,3 @@
+C:/Users/1123078/Codes/MIPT/Heaps/cmake-build-debug/CMakeFiles/Heaps.dir
+C:/Users/1123078/Codes/MIPT/Heaps/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/1123078/Codes/MIPT/Heaps/cmake-build-debug/CMakeFiles/rebuild_cache.dir
