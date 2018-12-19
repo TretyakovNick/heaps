@@ -3,7 +3,7 @@
 //#include "heap.h"
 
 template <typename Key>
-Key THeap<Key>::get(int index) {
+Key THeap<Key>::get(int index) const {
      return (arr[index])->key;
 }
 
@@ -52,7 +52,7 @@ void THeap<Key>::sift_down(int index) {
 }
 
 template <typename Key>
-Key THeap<Key>::get_min() {
+Key THeap<Key>::get_min() const{
     if (!size()) {
         throw std::out_of_range("Heap is empty");
     }
@@ -125,4 +125,3 @@ THeap<Key>::THeap() {}
 
 template <typename Key>
 THeap<Key>::~THeap() {}
-

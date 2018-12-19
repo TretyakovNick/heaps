@@ -14,11 +14,11 @@ private:
         Element(Key key, int index) : key(key), index(index) {}
     };
     Array <Element*> arr;
-    Key get(int index);
+    Key get(int index) const;
     void swap(int a, int b);
 public:
     class Pointer{
-    friend THeap;
+        friend THeap;
     private:
         Element *element;
         THeap *heap;
@@ -28,7 +28,7 @@ public:
     THeap();
     bool is_empty() const;
     int size() const;
-    Key get_min();
+    Key get_min() const;
     Key extract_min();
     Pointer insert(Key key);
     void erase(Pointer &ptr);

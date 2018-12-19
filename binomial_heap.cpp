@@ -30,11 +30,10 @@ void BinomialHeap<Key>::update_min() {
 
 template <typename Key>
 void BinomialHeap<Key>::merge(BinomialHeap <Key> &otherHeap) {
-    BinomialHeap <Key> &heap = *this;
     Array <TNode*> mas;
     std::cout << "kek1\n";
     int i = 0, j = 0;
-    Array <TNode*> &a = heap.arr, &b = otherHeap.arr;
+    Array <TNode*> &a = arr, &b = otherHeap.arr;
     std::cout << a.size() << " " << b.size() << std::endl;
     while (i < a.size() || j < b.size()) {
         std::cout << i << " " << j << std::endl;
@@ -105,7 +104,6 @@ void BinomialHeap<Key>::merge(BinomialHeap <Key> &otherHeap) {
         new_arr[deg + 1] = node;
         new_arr[deg] = nullptr;
     }
-    arr.~Array();
     arr = new_arr;
     update_min();
 }
