@@ -3,7 +3,7 @@
 //#include "heap.h"
 
 template <typename Key>
-Key THeap<Key>::get(int index) const {
+Key THeap<Key>::get(int index) const{
      return (arr[index])->key;
 }
 
@@ -50,6 +50,8 @@ void THeap<Key>::sift_down(int index) {
         index = nxt;
     }
 }
+
+///www
 
 template <typename Key>
 Key THeap<Key>::get_min() const{

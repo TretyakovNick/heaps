@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 #include "array.h"
-//#include "heap1.h"
+#include "binomial_heap.h"
 #include "heap2.h"
 
 #define ll long long
-
 
 using namespace std;
 
@@ -104,6 +103,7 @@ void check_heap() {
 
 int main() {
     //srand(time(0));
+    std::cout << "kek\n";
     int iter = 0;
     while (true) {
         check_heap();

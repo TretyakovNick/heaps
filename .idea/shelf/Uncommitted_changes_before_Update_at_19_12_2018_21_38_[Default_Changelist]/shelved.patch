@@ -1,0 +1,18 @@
+Index: heap2.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <exception>\r\n#include <stdexcept>\r\n//#include \"heap.h\"\r\n\r\ntemplate <typename Key>\r\nKey THeap<Key>::get(int index) const {\r\n     return (arr[index])->key;\r\n}\r\n\r\ntemplate<typename Key>\r\nbool THeap<Key>::is_empty() const{\r\n    return (!arr.size());\r\n}\r\n\r\ntemplate<typename Key>\r\nint THeap<Key>::size() const{\r\n    return arr.size();\r\n}\r\ntemplate <typename Key>\r\nvoid THeap<Key>::swap(int a, int b) {\r\n    if (a == b) return;\r\n    arr[a]->index = b;\r\n    arr[b]->index = a;\r\n    std::swap(arr[a], arr[b]);\r\n}\r\n\r\ntemplate <typename Key>\r\nvoid THeap<Key>::sift_up(int index) {\r\n    assert(index >= 0 && index < size());\r\n    while (index > 0 && get(index) < get((index - 1) / 2)) {\r\n        swap(index, (index - 1) / 2);\r\n        index = (index - 1) / 2;\r\n    }\r\n}\r\n\r\ntemplate <typename Key>\r\nvoid THeap<Key>::sift_down(int index) {\r\n    while (index < size()) {\r\n        int nxt = index;\r\n        if (2 * index + 1 < size() && get(nxt) > get(2 * index + 1)) {\r\n            nxt = 2 * index + 1;\r\n        }\r\n        if (2 * index + 2 < size() && get(nxt) > get(2 * index + 2)) {\r\n            nxt = 2 * index + 2;\r\n        }\r\n        if (nxt == index) {\r\n            break;\r\n        }\r\n        swap(index, nxt);\r\n        index = nxt;\r\n    }\r\n}\r\n\r\n///www\r\n\r\ntemplate <typename Key>\r\nKey THeap<Key>::get_min() const{\r\n    if (!size()) {\r\n        throw std::out_of_range(\"Heap is empty\");\r\n    }\r\n    return get(0);\r\n}\r\n\r\ntemplate <typename Key>\r\nKey THeap<Key>::extract_min() {\r\n    if (!size()) {\r\n        throw std::out_of_range(\"Heap is empty\");\r\n    }\r\n    Key key = get(0);\r\n    swap(0, size() - 1);\r\n    arr[size() - 1]->index = -1;\r\n    arr.pop_back();\r\n    sift_down(0);\r\n    return key;\r\n}\r\n\r\ntemplate <typename Key>\r\ntypename THeap<Key>::Pointer THeap<Key>::insert(Key key) {\r\n    Element *elem = new Element(key, size());\r\n    arr.push_back(elem);\r\n    sift_up(size() - 1);\r\n    Pointer ptr(elem, this);\r\n    return ptr;\r\n}\r\n\r\ntemplate <typename Key>\r\nvoid THeap<Key>::erase(Pointer &ptr) {\r\n    if (ptr.heap != this) {\r\n        throw std::out_of_range(\"Wrong Heap\");\r\n    }\r\n    if (!size()) {\r\n        throw std::out_of_range(\"Heap is empty\");\r\n    }\r\n    int ind = ptr.element->index;\r\n    assert(ind != -1);\r\n    swap(ind, size() - 1);\r\n    arr[size() - 1]->index = -1;\r\n    arr.pop_back();\r\n    if (ind == size()) return;\r\n    sift_down(ind);\r\n    sift_up(ind);\r\n}\r\n\r\ntemplate <typename Key>\r\nvoid THeap<Key>::change(Pointer &ptr, Key key) {\r\n    if (ptr.heap != this) {\r\n        throw std::out_of_range(\"Wrong Heap\");\r\n    }\r\n    Element *elem = ptr.element;\r\n    elem->key = key;\r\n    int ind = elem->index;\r\n    assert(ind != -1);\r\n    sift_down(ind);\r\n    sift_up(ind);\r\n}\r\n\r\ntemplate <typename Key>\r\nbool THeap<Key>::exist(Pointer &ptr) const{\r\n    if (ptr.heap != this) {\r\n        throw std::out_of_range(\"Wrong Heap\");\r\n    }\r\n    return ptr.element->index != -1;\r\n}\r\n\r\ntemplate <typename Key>\r\nTHeap<Key>::THeap() {}\r\n\r\ntemplate <typename Key>\r\nTHeap<Key>::~THeap() {}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- heap2.cpp	(date 1545243315000)
++++ heap2.cpp	(date 1545243362789)
+@@ -51,8 +51,6 @@
+     }
+ }
+ 
+-///www
+-
+ template <typename Key>
+ Key THeap<Key>::get_min() const{
+     if (!size()) {

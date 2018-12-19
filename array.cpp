@@ -51,6 +51,14 @@ Key& Array<Key>::operator[](int v) {
 }
 
 template <typename Key>
+Key& Array<Key>::operator[](int v) const{
+    if (v < 0 || v >= size()) {
+        throw std::out_of_range("Bad index of Array");
+    }
+    return data[v];
+}
+
+template <typename Key>
 void Array<Key>::reallocate() {
     if (array_size == capacity) {
         capacity *= 2;
@@ -71,4 +79,22 @@ void Array<Key>::reallocate() {
         delete []data;
         data = new_data;
    }
+}
+
+template <typename Key>
+void Array<Key>::clear() {
+    while (size()) {
+        pop_back();
+    }
+}
+
+template <typename Key>
+Array<Key>& Array<Key>::operator=(Array <Key> &otherArray) {
+    capacity = otherArray.capacity;
+    array_size = otherArray.array_size;
+    delete []data;
+    data = new Key[capacity];
+    for (int i = 0; i < array_size; i++) {
+        data[i] = otherArray[i];
+    }
 }
