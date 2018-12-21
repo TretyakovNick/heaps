@@ -89,6 +89,9 @@ void THeap<Key>::erase(Pointer &ptr) {
     if (!size()) {
         throw std::out_of_range("Heap is empty");
     }
+    if (!exist(ptr)) {
+        throw std::out_of_range("Node isn't exist");
+    }
     int ind = ptr.element->index;
     assert(ind != -1);
     swap(ind, size() - 1);
@@ -103,6 +106,9 @@ template <typename Key>
 void THeap<Key>::change(Pointer &ptr, Key key) {
     if (ptr.heap != this) {
         throw std::out_of_range("Wrong Heap");
+    }
+    if (!exist(ptr)) {
+        throw std::out_of_range("Node isn't exist");
     }
     Element *elem = ptr.element;
     elem->key = key;

@@ -34,6 +34,14 @@ C:/Users/1123078/CLionProjects/ver4.0/array.h
 binomial_heap.cpp
 C:/Users/1123078/CLionProjects/ver4.0/binomial_heap.cpp
 
+C:/Users/1123078/CLionProjects/ver4.0/cmake-build-debug/exceptions.cpp
+bits/stdc++.h
+-
+../heap2.h
+C:/Users/1123078/CLionProjects/ver4.0/heap2.h
+../binomial_heap.h
+C:/Users/1123078/CLionProjects/ver4.0/binomial_heap.h
+
 C:/Users/1123078/CLionProjects/ver4.0/heap2.cpp
 exception
 -
@@ -45,14 +53,4 @@ array.h
 C:/Users/1123078/CLionProjects/ver4.0/array.h
 heap2.cpp
 C:/Users/1123078/CLionProjects/ver4.0/heap2.cpp
-
-C:/Users/1123078/CLionProjects/ver4.0/main.cpp
-bits/stdc++.h
--
-array.h
-C:/Users/1123078/CLionProjects/ver4.0/array.h
-binomial_heap.h
-C:/Users/1123078/CLionProjects/ver4.0/binomial_heap.h
-heap2.h
-C:/Users/1123078/CLionProjects/ver4.0/heap2.h
 

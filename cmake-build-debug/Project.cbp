@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/1123078/CLionProjects/ver4.0/main.cpp">
+		<Unit filename="C:/Users/1123078/CLionProjects/ver4.0/cmake-build-debug/exceptions.cpp">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="C:/Users/1123078/CLionProjects/ver4.0/CMakeLists.txt">
