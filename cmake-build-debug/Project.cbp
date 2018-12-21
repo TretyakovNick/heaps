@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/1123078/CLionProjects/ver4.0/speed_test.cpp">
+		<Unit filename="C:/Users/1123078/CLionProjects/ver4.0/main.cpp">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="C:/Users/1123078/CLionProjects/ver4.0/CMakeLists.txt">

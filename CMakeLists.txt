@@ -2,4 +2,4 @@ cmake_minimum_required(VERSION 2.8)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(main speed_test.cpp)
+add_executable(main main.cpp)

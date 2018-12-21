@@ -62,7 +62,7 @@ int main() {
         cout << (double) (now_time - pr_time) / CLOCKS_PER_SEC << "\n";
         sum += now_time - pr_time;
         pr_time = now_time;
-        cerr << "kek\n";
+        //cerr << "kek1\n";
     }
     cout << "Median : " << (double) sum / TESTS / CLOCKS_PER_SEC << "\n";
     pr_time = clock();
@@ -75,7 +75,7 @@ int main() {
         cout << (double) (now_time - pr_time) / CLOCKS_PER_SEC << "\n";
         sum += now_time - pr_time;
         pr_time = now_time;
-        cerr << "kek\n";
+        //cerr << "kek2\n";
     }
     cout << "Median : " << (double) sum / TESTS / CLOCKS_PER_SEC << "\n";
 }

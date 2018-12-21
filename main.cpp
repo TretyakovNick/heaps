@@ -91,7 +91,7 @@ void check_heaps() {
             all[p] = INF;
             cnt--;
             q.erase(heap_ptrs[p]);
-        } else {
+        } else if (tp == 0) {
             if (!cnt) continue;
             int p = rand() % all.size(), v = rand();
             if (all[p] == INF) continue;

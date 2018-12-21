@@ -125,3 +125,15 @@ THeap<Key>::THeap() {}
 
 template <typename Key>
 THeap<Key>::~THeap() {}
+
+template <typename Key>
+template <class Iterator>
+THeap<Key>::THeap(Iterator begin, Iterator end) {
+    THeap();
+    Iterator now = begin;
+    while (now != end) {
+        insert(now->key);
+        now++;
+    }
+    insert(now->key);
+}

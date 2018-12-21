@@ -34,6 +34,7 @@ public:
     void erase(Pointer &ptr);
     void change(Pointer &ptr, Key key);
     bool exist(Pointer &ptr) const;
+    template <class Iterator> THeap(Iterator begin, Iterator end);
 };
 
 #include "heap2.cpp"
