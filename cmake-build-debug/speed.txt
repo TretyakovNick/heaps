@@ -1,0 +1,24 @@
+Heap:
+Test 1: 4.334
+Test 2: 4.424
+Test 3: 4.317
+Test 4: 4.272
+Test 5: 4.291
+Test 6: 4.289
+Test 7: 4.39
+Test 8: 4.376
+Test 9: 4.294
+Test 10: 4.283
+Median : 4.327
+BinomialHeap:
+Test 1: 31.032
+Test 2: 33.398
+Test 3: 34.582
+Test 4: 32.881
+Test 5: 33.075
+Test 6: 34.519
+Test 7: 34.418
+Test 8: 36.311
+Test 9: 37.218
+Test 10: 37.195
+Median : 34.4629

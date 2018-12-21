@@ -16,7 +16,7 @@ private:
         }
     };
     Array <TNode*> arr;
-    int size;
+    int heap_size;
     TNode *min;
     void update_min();
 public:
@@ -30,6 +30,7 @@ public:
     ~BinomialHeap();
     BinomialHeap();
     bool is_empty() const;
+    int size() const;
     Key get_min() const;
     Key extract_min();
     Pointer insert(Key key);

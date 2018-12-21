@@ -6,11 +6,11 @@
 
 template <typename Key>
 bool BinomialHeap<Key>::is_empty() const{
-    return size == 0;
+    return heap_size == 0;
 }
 
 template <typename Key>
-Key BinomialHeap<Key>::get_min() const{
+Key BinomialHeap<Key>::get_min() const {
     if (is_empty()) {
         throw std::out_of_range("BinomialHeap is empty");
     }
@@ -26,6 +26,11 @@ void BinomialHeap<Key>::update_min() {
             min = arr[i];
         }
     }
+}
+
+template <typename Key>
+int BinomialHeap<Key>::size() const {
+    return heap_size;
 }
 
 template <typename Key>
@@ -111,7 +116,7 @@ Key BinomialHeap<Key>::extract_min() {
     BinomialHeap otherHeap;
     otherHeap.arr = min->children;
     delete min;
-    size--;
+    heap_size--;
     merge(otherHeap);
     return key;
 }
@@ -123,7 +128,7 @@ typename BinomialHeap<Key>::Pointer BinomialHeap<Key>::insert(Key key) {
     otherHeap.arr.push_back(node);
     otherHeap.min = node;
     merge(otherHeap);
-    size++;
+    heap_size++;
     return Pointer(node, this);
 }
 
@@ -174,7 +179,7 @@ void BinomialHeap<Key>::change(Pointer &ptr, Key key) {
 template <typename Key>
 BinomialHeap<Key>::BinomialHeap() {
     min = nullptr;
-    size = 0;
+    heap_size = 0;
 }
 
 template <typename Key>
