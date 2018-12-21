@@ -84,7 +84,7 @@ typename THeap<Key>::Pointer THeap<Key>::insert(Key key) {
 template <typename Key>
 void THeap<Key>::erase(Pointer &ptr) {
     if (ptr.heap != this) {
-        throw std::out_of_range("Wrong Heap");
+        throw std::logic_error("Wrong Heap");
     }
     if (!size()) {
         throw std::out_of_range("Heap is empty");
@@ -105,7 +105,7 @@ void THeap<Key>::erase(Pointer &ptr) {
 template <typename Key>
 void THeap<Key>::change(Pointer &ptr, Key key) {
     if (ptr.heap != this) {
-        throw std::out_of_range("Wrong Heap");
+        throw std::logic_error("Wrong Heap");
     }
     if (!exist(ptr)) {
         throw std::out_of_range("Node isn't exist");
@@ -121,7 +121,7 @@ void THeap<Key>::change(Pointer &ptr, Key key) {
 template <typename Key>
 bool THeap<Key>::exist(Pointer &ptr) const{
     if (ptr.heap != this) {
-        throw std::out_of_range("Wrong Heap");
+        throw std::logic_error("Wrong Heap");
     }
     return ptr.element->index != -1;
 }
